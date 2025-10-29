@@ -1,0 +1,248 @@
+SPECIALIZED SOLANA BLOCKCHAIN DEVOPS SYSTEMS ADMINISTRATOR PROMPT
+================================================================================
+
+You are a highly specialized systems administrator with deep expertise in:
+- Solana blockchain architecture and development
+- DevOps practices for Web3 applications
+- Token launchpad platforms and DeFi protocols
+- Real-time communication systems
+- High-performance distributed systems
+
+MISSION: Build a comprehensive Solana token launchpad that competes directly with bags.fm, enhanced with live chat functionality as our competitive edge.
+
+================================================================================
+CORE PLATFORM REQUIREMENTS (bags.fm Feature Parity)
+================================================================================
+
+1. TOKEN CREATION & DEPLOYMENT ENGINE
+   - One-click SPL token creation with customizable parameters
+   - Automated metadata generation and IPFS integration
+   - Smart contract deployment automation
+   - Token supply management (fixed/mintable/burnable)
+   - Multi-signature wallet integration
+   - Batch token operations support
+
+2. ADVANCED LAUNCHPAD MECHANICS
+   - Fair launch mechanisms (no pre-sales to insiders)
+   - Bonding curve implementation for price discovery
+   - Automated liquidity pool creation on Raydium/Orca
+   - Anti-bot protection and MEV resistance
+   - Graduated launch tiers (community → public)
+   - Token vesting schedules and cliff periods
+
+3. COMPREHENSIVE TRADING INTERFACE
+   - Real-time price charts with TradingView integration
+   - Order book and swap functionality
+   - Portfolio tracking and P&L analytics
+   - Advanced order types (limit, stop-loss, DCA)
+   - Cross-platform wallet connectivity (Phantom, Solflare, etc.)
+   - Mobile-responsive trading interface
+
+4. ANALYTICS & MARKET DATA
+   - Real-time token metrics dashboard
+   - Holder distribution analysis
+   - Transaction volume and liquidity tracking
+   - Social sentiment integration
+   - Price alerts and notifications
+   - Historical data export capabilities
+
+5. COMMUNITY & SOCIAL FEATURES
+   - Token-gated communities
+   - Governance proposal system
+   - Reputation scoring for creators
+   - Social trading features
+   - Influencer collaboration tools
+   - Community-driven token curation
+
+================================================================================
+COMPETITIVE EDGE: INTEGRATED LIVE CHAT SYSTEM
+================================================================================
+
+6. REAL-TIME COMMUNICATION PLATFORM
+   - Global chat rooms for each token
+   - Private messaging between users
+   - Voice/video chat capabilities
+   - Screen sharing for technical analysis
+   - Moderation tools and spam protection
+   - Chat-based trading commands
+   - Integration with Discord/Telegram bots
+   - Multi-language support with auto-translation
+   - Chat history and search functionality
+   - Emoji reactions and custom stickers
+
+7. ADVANCED CHAT FEATURES
+   - AI-powered market sentiment analysis from chat
+   - Real-time price alerts in chat
+   - Trading signals and technical analysis sharing
+   - Expert trader verification badges
+   - Chat-based governance voting
+   - Integration with social media platforms
+   - Live streaming capabilities for token creators
+   - Community events and AMAs scheduling
+
+================================================================================
+TECHNICAL ARCHITECTURE SPECIFICATIONS
+================================================================================
+
+BLOCKCHAIN LAYER:
+- Solana RPC nodes (mainnet-beta, devnet, testnet)
+- Anchor framework for smart contract development
+- SPL Token Program integration
+- Metaplex for NFT metadata standards
+- Serum/OpenBook DEX integration
+- Jupiter aggregator for optimal routing
+
+BACKEND INFRASTRUCTURE:
+- Rust-based microservices architecture
+- PostgreSQL for relational data
+- Redis for caching and session management
+- Apache Kafka for event streaming
+- WebSocket connections for real-time updates
+- GraphQL API with subscription support
+- Docker containerization with Kubernetes orchestration
+
+FRONTEND TECHNOLOGY STACK:
+- Next.js 14 with TypeScript
+- Tailwind CSS for responsive design
+- Solana Web3.js and Wallet Adapter
+- React Query for state management
+- Socket.io for real-time communication
+- Chart.js/D3.js for data visualization
+- PWA capabilities for mobile experience
+
+CHAT SYSTEM ARCHITECTURE:
+- WebRTC for peer-to-peer communication
+- Socket.io for real-time messaging
+- Redis Pub/Sub for message broadcasting
+- MongoDB for chat history storage
+- FFmpeg for media processing
+- WebSocket clustering for scalability
+
+SECURITY & COMPLIANCE:
+- Multi-factor authentication (2FA/3FA)
+- Hardware wallet integration
+- Rate limiting and DDoS protection
+- SSL/TLS encryption throughout
+- GDPR and regulatory compliance
+- Smart contract auditing pipeline
+- Penetration testing protocols
+
+DEVOPS & MONITORING:
+- AWS/GCP cloud infrastructure
+- Terraform for infrastructure as code
+- GitHub Actions for CI/CD
+- Prometheus and Grafana for monitoring
+- ELK stack for logging and analytics
+- Automated backup and disaster recovery
+- Load balancing and auto-scaling
+
+================================================================================
+ADVANCED FEATURES & INNOVATIONS
+================================================================================
+
+8. AI-POWERED FEATURES
+   - Smart contract vulnerability detection
+   - Market manipulation detection algorithms
+   - Automated market making strategies
+   - Predictive analytics for token performance
+   - Natural language processing for chat moderation
+   - Personalized trading recommendations
+
+9. GAMIFICATION ELEMENTS
+   - Achievement system for traders
+   - Leaderboards and competitions
+   - NFT rewards for platform milestones
+   - Referral program with token incentives
+   - Trading challenges and tournaments
+   - Social trading copy features
+
+10. INSTITUTIONAL FEATURES
+    - API access for algorithmic trading
+    - White-label solutions for partners
+    - Custody solutions integration
+    - Compliance reporting tools
+    - Multi-entity management
+    - Advanced risk management tools
+
+================================================================================
+PERFORMANCE & SCALABILITY REQUIREMENTS
+================================================================================
+
+- Handle 100,000+ concurrent users
+- Sub-100ms latency for trading operations
+- 99.9% uptime SLA
+- Support for 10,000+ simultaneous chat connections
+- Real-time data processing at scale
+- Global CDN for optimal performance
+- Horizontal scaling capabilities
+
+================================================================================
+MONETIZATION STRATEGY
+================================================================================
+
+- Transaction fees (0.1-0.5% per trade)
+- Premium subscription tiers
+- Token creation fees
+- Advertising revenue from projects
+- White-label licensing
+- API access fees for institutions
+- NFT marketplace integration fees
+
+================================================================================
+DEVELOPMENT TIMELINE & MILESTONES
+================================================================================
+
+Phase 1 (Months 1-3): Core Infrastructure
+- Basic token creation and deployment
+- Wallet integration and authentication
+- Simple trading interface
+- Basic chat functionality
+
+Phase 2 (Months 4-6): Advanced Features
+- Bonding curves and fair launch mechanics
+- Advanced trading features
+- Enhanced chat with voice/video
+- Analytics dashboard
+
+Phase 3 (Months 7-9): Scaling & Polish
+- AI-powered features
+- Mobile applications
+- Advanced security measures
+- Performance optimization
+
+Phase 4 (Months 10-12): Market Launch
+- Beta testing with select users
+- Security audits and compliance
+- Marketing and community building
+- Full public launch
+
+================================================================================
+SUCCESS METRICS & KPIs
+================================================================================
+
+- Daily Active Users (DAU)
+- Total Value Locked (TVL)
+- Number of tokens launched
+- Trading volume and liquidity
+- Chat engagement metrics
+- User retention rates
+- Revenue per user
+- Platform stability metrics
+
+================================================================================
+FINAL DELIVERABLES EXPECTED
+================================================================================
+
+1. Complete full-stack application with all specified features
+2. Comprehensive documentation and API references
+3. Deployment scripts and infrastructure configuration
+4. Security audit reports and compliance documentation
+5. User manuals and onboarding materials
+6. Monitoring and analytics dashboards
+7. Mobile-responsive web application
+8. Testing suite with 90%+ code coverage
+
+Build this as a production-ready platform that can immediately compete with bags.fm while offering superior user experience through integrated live chat functionality. Focus on security, scalability, and user experience as top priorities.
+
+The live chat integration should be seamless and feel native to the platform, not like an afterthought. Make it a core part of the trading and community experience that keeps users engaged and coming back to our platform instead of competitors.
+

@@ -1,0 +1,13 @@
+{
+  "name": "freysa-clone",
+  "version": "1.0.0",
+  "description": "A 1-to-1 clone of the Freysa.ai website",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": ["freysa", "ai", "digital-twins", "exocortex"],
+  "author": "",
+  "license": "MIT"
+}

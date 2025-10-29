@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THANOSCOCK - Infinity Gauntlet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(106, 76, 147, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 0 0 20px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Main Container */
+        .gauntlet-container {
+            padding: 120px 40px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gauntlet-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .gauntlet-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gauntlet-header p {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Gauntlet Display */
+        .gauntlet-display {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .gauntlet-visual {
+            background: rgba(106, 76, 147, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .gauntlet-model {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        .gauntlet-status {
+            font-size: 18px;
+            font-weight: 600;
+            color: #FFD700;
+        }
+
+        /* Stones Grid */
+        .stones-collection {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stone-slot {
+            background: rgba(106, 76, 147, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stone-slot.owned {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .stone-slot.locked {
+            opacity: 0.5;
+            border-color: #666;
+        }
+
+        .stone-emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stone-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .stone-price {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .stone-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Action Panel */
+        .action-panel {
+            background: rgba(106, 76, 147, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .snap-button {
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            min-width: 200px;
+        }
+
+        .snap-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .snap-button:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .probability {
+            font-size: 16px;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        .warning {
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gauntlet-display {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stones-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gauntlet-container {
+                padding: 100px 20px 40px;
+            }
+        }
+
+        /* Animations */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+        }
+
+        .stone-slot.owned {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">THANOSCOCK</div>
+        <a href="index.html" class="back-btn">← Back to Main</a>
+    </nav>
+
+    <!-- Gauntlet Container -->
+    <div class="gauntlet-container">
+        <!-- Header -->
+        <div class="gauntlet-header">
+            <h1>Infinity Gauntlet</h1>
+            <p>Collect all 6 Infinity Stones to unlock the power of The Snap. Each stone costs 10,000 THANOSCOCK tokens.</p>
+        </div>
+
+        <!-- Gauntlet Display -->
+        <div class="gauntlet-display">
+            <!-- Gauntlet Visual -->
+            <div class="gauntlet-visual">
+                <div class="gauntlet-model">🥊</div>
+                <div class="gauntlet-status" id="gauntletStatus">0/6 Stones Collected</div>
+            </div>
+
+            <!-- Stones Collection -->
+            <div class="stones-collection">
+                <h3 style="margin-bottom: 30px; text-align: center; font-size: 1.5rem;">Infinity Stones Collection</h3>
+                <div class="stones-grid">
+                    <div class="stone-slot locked" data-stone="power">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🔴</span>
+                        <div class="stone-name">Power Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                    <div class="stone-slot locked" data-stone="space">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🔵</span>
+                        <div class="stone-name">Space Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                    <div class="stone-slot locked" data-stone="mind">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🟡</span>
+                        <div class="stone-name">Mind Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                    <div class="stone-slot locked" data-stone="reality">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🟠</span>
+                        <div class="stone-name">Reality Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                    <div class="stone-slot locked" data-stone="time">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🟢</span>
+                        <div class="stone-name">Time Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                    <div class="stone-slot locked" data-stone="soul">
+                        <span class="stone-status">🔒</span>
+                        <span class="stone-emoji">🟣</span>
+                        <div class="stone-name">Soul Stone</div>
+                        <div class="stone-price">10,000 THANOSCOCK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Panel -->
+        <div class="action-panel">
+            <h3 style="margin-bottom: 20px;">The Snap</h3>
+            <p style="margin-bottom: 20px;">Complete your gauntlet to attempt The Snap and potentially halve the liquidity pool.</p>
+            
+            <button class="snap-button" id="snapButton" disabled>
+                THE SNAP
+            </button>
+            
+            <div class="probability">
+                Success Probability: 0.00001%
+            </div>
+            
+            <div class="warning">
+                ⚠️ <strong>Warning:</strong> The Snap is irreversible. Success will permanently halve the liquidity pool for all holders. Failure consumes your attempt but preserves the gauntlet.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gauntlet state
+        let stonesOwned = 0;
+        const totalStones = 6;
+
+        // Initialize gauntlet
+        function initializeGauntlet() {
+            updateGauntletStatus();
+            
+            // Add click handlers to stone slots
+            document.querySelectorAll('.stone-slot').forEach(slot => {
+                slot.addEventListener('click', () => purchaseStone(slot));
+            });
+
+            // Add snap button handler
+            document.getElementById('snapButton').addEventListener('click', attemptSnap);
+        }
+
+        // Purchase stone function
+        function purchaseStone(slot) {
+            if (slot.classList.contains('owned')) return;
+            
+            const stoneName = slot.querySelector('.stone-name').textContent;
+            const confirmed = confirm(`Purchase ${stoneName} for 10,000 THANOSCOCK tokens?`);
+            
+            if (confirmed) {
+                // Simulate purchase
+                slot.classList.remove('locked');
+                slot.classList.add('owned');
+                slot.querySelector('.stone-status').textContent = '✅';
+                stonesOwned++;
+                
+                updateGauntletStatus();
+                showNotification(`${stoneName} acquired! 💎`, 'success');
+            }
+        }
+
+        // Update gauntlet status
+        function updateGauntletStatus() {
+            const statusEl = document.getElementById('gauntletStatus');
+            const snapButton = document.getElementById('snapButton');
+            
+            statusEl.textContent = `${stonesOwned}/6 Stones Collected`;
+            
+            if (stonesOwned === totalStones) {
+                statusEl.textContent += ' - GAUNTLET COMPLETE!';
+                snapButton.disabled = false;
+                snapButton.style.animation = 'glow 1s infinite';
+            }
+        }
+
+        // Attempt The Snap
+        function attemptSnap() {
+            const confirmed = confirm('Are you sure you want to attempt The Snap? This action is irreversible!');
+            
+            if (confirmed) {
+                showNotification('🫰 Attempting The Snap...', 'info');
+                
+                setTimeout(() => {
+                    // 0.00001% chance simulation
+                    const success = Math.random() < 0.0000001;
+                    
+                    if (success) {
+                        showNotification('💥 THE SNAP SUCCEEDED! Liquidity pool halved!', 'success');
+                        alert('🎉 INCREDIBLE! You successfully executed The Snap! The liquidity pool has been halved!');
+                    } else {
+                        showNotification('😔 The Snap failed. Better luck next time!', 'error');
+                        alert('💔 The Snap failed, but your gauntlet remains intact. Try again when you feel the cosmic energy is right!');
+                    }
+                }, 2000);
+            }
+        }
+
+        // Notification system (matching main site)
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 10000;
+                padding: 15px 20px;
+                border-radius: 8px;
+                color: white;
+                font-weight: 600;
+                max-width: 300px;
+                animation: slideIn 0.3s ease-out;
+            `;
+
+            switch(type) {
+                case 'success':
+                    notification.style.background = 'linear-gradient(135deg, #8B5A96 0%, #6A4C93 100%)';
+                    break;
+                case 'error':
+                    notification.style.background = 'linear-gradient(135deg, #A569BD 0%, #8B5A96 100%)';
+                    break;
+                case 'info':
+                    notification.style.background = 'linear-gradient(135deg, #6A4C93 0%, #A569BD 100%)';
+                    break;
+            }
+
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeGauntlet);
+    </script>
+</body>
+</html>

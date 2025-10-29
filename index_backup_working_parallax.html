@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THANOSCOCK - The Ultimate Infinity Stone Crypto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            --scroll-offset: 0px;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50vh;
+            left: 0;
+            width: 100vw;
+            height: 300vh;
+            background: url('landingpage.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            opacity: 0.8;
+            will-change: transform;
+            transform: translateY(var(--scroll-offset, 0px));
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 40px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            z-index: 2;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: #fff;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 100px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* Twin Section */
+        .twin-section {
+            padding: 100px 40px;
+            background: rgba(10, 10, 10, 0.8);
+        }
+
+        .twin-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .twin-section h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .twin-section .description {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Manifesto Section */
+        .manifesto {
+            padding: 100px 40px;
+            background: rgba(17, 17, 17, 0.8);
+        }
+
+        .manifesto-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .manifesto h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .manifesto h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .manifesto p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+
+        /* Digital Twins Section */
+        .digital-twins {
+            padding: 100px 40px;
+            background: rgba(10, 10, 10, 0.7);
+        }
+
+        .twins-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 50px auto 0;
+        }
+
+        .twin-card {
+            padding: 40px;
+            border: 1px solid #333;
+            background: rgba(17, 17, 17, 0.9);
+            text-align: left;
+        }
+
+        .twin-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .twin-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Silo Section */
+        .silo-section {
+            padding: 100px 40px;
+            background: rgba(17, 17, 17, 0.8);
+            text-align: center;
+        }
+
+        .silo-section h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        /* Exocortex Section */
+        .exocortex {
+            padding: 100px 40px;
+            background: rgba(10, 10, 10, 0.7);
+        }
+
+        .exocortex-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .phases {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .phase {
+            padding: 40px;
+            border: 1px solid #333;
+            background: rgba(17, 17, 17, 0.9);
+            text-align: left;
+        }
+
+        .phase-number {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .phase h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 80px 40px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+            text-align: left;
+        }
+
+        .footer-section h5 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 40px;
+            opacity: 0.6;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero, .twin-section, .manifesto, .digital-twins, .silo-section, .exocortex, .footer {
+                padding: 60px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(45deg, #fff, #ccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hover effects */
+        .twin-card:hover, .phase:hover {
+            border-color: #555;
+            transition: border-color 0.3s;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">THANOSCOCK</div>
+        <ul class="nav-links">
+            <li><a href="#docs">Whitepaper</a></li>
+            <li><a href="#blueprint">Contract</a></li>
+            <li><a href="#community">Community</a></li>
+            <li><a href="#manifesto">Tokenomics</a></li>
+            <li><a href="#silo">Trade</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="gradient-text fade-in">THANOSCOCK<br>CRYPTO</h1>
+        <p class="description fade-in">Collect Infinity Stones • Fill the Gauntlet • Snap for Glory</p>
+        <div class="cta-buttons fade-in">
+            <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
+            <a href="#silo" class="btn">Trade Stones</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>∞</h3>
+                <p>THANOSCOCK Holders</p>
+            </div>
+            <div class="stat-item">
+                <h3>6</h3>
+                <p>Infinity Stones Available</p>
+            </div>
+            <div class="stat-item">
+                <h3>0.00001%</h3>
+                <p>Snap Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Twin Introduction -->
+    <section class="twin-section">
+        <div class="twin-content">
+            <h2>Each Infinity Stone costs 10,000 THANOSCOCK tokens. Collect all 6 stones to complete the gauntlet and gain the power to snap reality itself.</h2>
+            <div class="cta-buttons">
+                <a href="#manifesto" class="btn btn-primary">Start Collecting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manifesto Section -->
+    <section class="manifesto" id="manifesto">
+        <div class="manifesto-content">
+            <h2>The Infinity Protocol</h2>
+            <h3>The THANOSCOCK Manifesto</h3>
+            <p>We believe in the power of perfectly balanced tokenomics. THANOSCOCK represents the ultimate deflationary mechanism through the sacred ritual of The Snap.</p>
+            <p>This protocol enables holders to participate in the cosmic lottery where reality itself can be rewritten with a single snap of the gauntlet.</p>
+            <div class="cta-buttons">
+                <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
+            </div>
+            
+            <h3 style="margin-top: 80px;">Why The Snap?</h3>
+            <p>When a holder completes their Infinity Gauntlet with all 6 stones, they gain the power to attempt The Snap. Success means halving the entire liquidity pool - the ultimate deflationary event.</p>
+            <div class="cta-buttons">
+                <a href="#manifesto" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Twins Section -->
+    <section class="digital-twins">
+        <div class="twin-content">
+            <h2>Collect the Infinity Stones, Wield Ultimate Power</h2>
+            <p class="description">Each stone represents a fundamental force of the universe. Acquire all 6 stones using THANOSCOCK tokens to complete your gauntlet and unlock the power of The Snap.</p>
+            <p class="description">Only those with a complete gauntlet can attempt to snap reality and potentially halve the liquidity pool forever.</p>
+            
+            <div class="twins-grid">
+                <div class="twin-card">
+                    <h4>🔴 Power Stone</h4>
+                    <p>The Power Stone grants its wielder immense strength and energy manipulation. Cost: 10,000 THANOSCOCK tokens. This crimson gem amplifies your cosmic influence within the protocol.</p>
+                </div>
+                <div class="twin-card">
+                    <h4>🔵 Space Stone</h4>
+                    <p>The Space Stone allows instantaneous travel across the universe and manipulation of spatial dimensions. Cost: 10,000 THANOSCOCK tokens. Bend reality to your will.</p>
+                </div>
+                <div class="twin-card">
+                    <h4>🟡 Mind Stone</h4>
+                    <p>The Mind Stone grants telepathic abilities and consciousness manipulation. Cost: 10,000 THANOSCOCK tokens. Control thoughts and influence the collective consciousness.</p>
+                </div>
+                <div class="twin-card">
+                    <h4>🟠 Reality Stone</h4>
+                    <p>The Reality Stone can alter the fundamental laws of physics and reality itself. Cost: 10,000 THANOSCOCK tokens. Reshape existence according to your desires.</p>
+                </div>
+                <div class="twin-card">
+                    <h4>🟢 Time Stone</h4>
+                    <p>The Time Stone grants control over the flow of time - past, present, and future. Cost: 10,000 THANOSCOCK tokens. Manipulate temporal mechanics at will.</p>
+                </div>
+                <div class="twin-card">
+                    <h4>🟣 Soul Stone</h4>
+                    <p>The Soul Stone controls life and death, the most mysterious of all stones. Cost: 10,000 THANOSCOCK tokens. Command the essence of existence itself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Silo Section -->
+    <section class="silo-section" id="silo">
+        <div class="twin-content">
+            <h2>The Gauntlet Interface</h2>
+            <p class="description">Track your stone collection progress and execute The Snap when your gauntlet is complete. Monitor the liquidity pool and prepare for the ultimate cosmic event.</p>
+            <div class="download-buttons">
+                <a href="#" class="btn btn-primary">Connect Wallet</a>
+                <a href="#" class="btn btn-primary">View Gauntlet</a>
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="#" class="btn">Live Trading</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exocortex Section -->
+    <section class="exocortex">
+        <div class="exocortex-content">
+            <h2>Tokenomics</h2>
+            <p class="description">THANOSCOCK operates on a revolutionary deflationary model where holders can literally snap away half the liquidity through cosmic intervention. Perfect balance, as all things should be.</p>
+            
+            <div class="phases">
+                <div class="phase">
+                    <div class="phase-number">Phase 1</div>
+                    <h4>Stone Collection</h4>
+                    <p>Acquire THANOSCOCK tokens on the Solana blockchain. Each Infinity Stone costs exactly 10,000 THANOSCOCK tokens.</p>
+                    <p>Stones are NFTs that grant special privileges and voting rights within the protocol.</p>
+                    <p>Complete your collection to unlock the ultimate power of The Snap.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">Phase 2</div>
+                    <h4>Gauntlet Assembly</h4>
+                    <p>Once you own all 6 Infinity Stones, they automatically combine into the Infinity Gauntlet NFT - the most powerful asset in the THANOSCOCK ecosystem.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">Phase 3</div>
+                    <h4>The Snap</h4>
+                    <p>Gauntlet holders can attempt The Snap with a 0.00001% chance of success. Success triggers the halving of the entire liquidity pool - the ultimate deflationary event.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>THANOSCOCK Protocol</h2>
+            <p>Perfectly balanced tokenomics, as all things should be</p>
+            <div class="cta-buttons">
+                <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
+                <a href="#silo" class="btn">Trade Stones</a>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h5>Protocol</h5>
+                    <ul>
+                        <li><a href="#manifesto">Tokenomics</a></li>
+                        <li><a href="#docs">Whitepaper</a></li>
+                        <li><a href="#blueprint">Smart Contract</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h5>Trading</h5>
+                    <ul>
+                        <li><a href="#">DEX Listing</a></li>
+                        <li><a href="#">Liquidity Pool</a></li>
+                        <li><a href="#">Stone Marketplace</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© THANOSCOCK Protocol. 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+            observer.observe(section);
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + '+';
+            }, 20);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-item h3');
+                    counters.forEach(counter => {
+                        if (counter.textContent.includes('+')) {
+                            // For now, keep the original text as the counter is "0+"
+                            counter.style.opacity = '1';
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Add parallax effect to background image
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const backgroundElement = document.querySelector('body::before') || document.body;
+            
+            // Move the background image in opposite direction of scroll
+            document.body.style.setProperty('--scroll-offset', `${scrolled * 0.3}px`);
+        });
+
+        // Add typing effect to hero title (optional enhancement)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect on load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                // Optional: uncomment to enable typing effect
+                // typeWriter(heroTitle, 'AI for\nall Humans', 150);
+            }
+        });
+    </script>
+</body>
+</html>
