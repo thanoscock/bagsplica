@@ -47,7 +47,7 @@
             z-index: 9999;
             padding: 20px 40px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             background: rgba(106, 76, 147, 0.8);
             backdrop-filter: blur(20px);
@@ -73,13 +73,16 @@
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 16px;
+            font-family: monospace !important;
+            font-size: 14px !important;
             font-weight: 500;
             padding: 12px 24px;
             border-radius: 25px;
             border: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            letter-spacing: 0.5px !important;
+            cursor: pointer;
         }
 
         .nav-links a:hover {
@@ -189,24 +192,130 @@
             box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 100px 40px;
+        /* Stats Sidebar - Positioned right side, even lower */
+        .stats-sidebar {
+            position: fixed;
+            top: 450px; /* A little more lower on the page */
+            right: 40px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px 25px;
+            min-width: 200px;
+        }
+
+        .stats-sidebar .stat-item {
             text-align: center;
-            background: rgba(106, 76, 147, 0.25);
+            padding: 15px 0;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-            max-width: 800px;
-            margin: 0 auto;
+        .stats-sidebar .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            color: #fff;
+            font-weight: 900;
         }
 
-        .stat-item h3 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        .stats-sidebar .stat-item p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* Disabled button with red X and coming soon */
+        .disabled-button-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-disabled-x {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .red-x {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff0000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .coming-soon {
+            position: absolute;
+            top: -15px;
+            right: -120px;
+            color: #ff0000;
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transform: rotate(-15deg);
+            text-shadow: 
+                2px 2px 0px #000,
+                -2px -2px 0px #000,
+                2px -2px 0px #000,
+                -2px 2px 0px #000,
+                4px 4px 8px rgba(0, 0, 0, 0.8);
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            z-index: 10;
+            pointer-events: none;
+            animation: graffiti-glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes graffiti-glow {
+            0% {
+                text-shadow: 
+                    2px 2px 0px #000,
+                    -2px -2px 0px #000,
+                    2px -2px 0px #000,
+                    -2px 2px 0px #000,
+                    4px 4px 8px rgba(255, 0, 0, 0.8);
+            }
+            100% {
+                text-shadow: 
+                    2px 2px 0px #000,
+                    -2px -2px 0px #000,
+                    2px -2px 0px #000,
+                    -2px 2px 0px #000,
+                    4px 4px 12px rgba(255, 0, 0, 1),
+                    0 0 20px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        /* Responsive design for stats sidebar */
+        @media (max-width: 768px) {
+            .stats-sidebar {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px;
+                width: calc(100% - 40px);
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 20px 15px;
+            }
+
+            .stats-sidebar .stat-item {
+                padding: 10px 15px;
+                flex: 1;
+            }
+
+            .stats-sidebar .stat-item h3 {
+                font-size: 1.8rem;
+            }
+
+            .stats-sidebar .stat-item p {
+                font-size: 0.8rem;
+            }
         }
 
         .stat-item p {
@@ -613,13 +722,8 @@
 
     <!-- Navigation -->
     <nav class="nav">
-        <div class="logo">THANOSCOCK</div>
         <ul class="nav-links">
-            <li><a href="#docs">WHITEPAPER</a></li>
-            <li><a href="#blueprint">CONTRACT</a></li>
-            <li><a href="#community">COMMUNITY</a></li>
-            <li><a href="#manifesto">TOKENOMICS</a></li>
-            <li><a href="#silo">TRADE</a></li>
+            <li><a href="#" onclick="copyToClipboard('moZRjwhT3zj7iqCupzn5vx7wQFjKfqkPjtEJaUVbTcp')">CA: MOZRJWHT3ZJ7IQCUPZN5VX7WQFJKFQKPJTEJAUV...</a></li>
         </ul>
     </nav>
 
@@ -635,174 +739,31 @@
             <h1 class="gradient-text fade-in">THANOS<br>COCK</h1>
             <p class="description fade-in">COLLECT INFINITY STONES • FILL THE GAUNTLET • SNAP FOR GLORY</p>
             <div class="cta-buttons fade-in">
-                <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
-                <a href="#silo" class="btn">Trade Stones</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat-item">
-                <h3>∞</h3>
-                <p>THANOSCOCK HOLDERS</p>
-            </div>
-            <div class="stat-item">
-                <h3>6</h3>
-                <p>INFINITY STONES AVAILABLE</p>
-            </div>
-            <div class="stat-item">
-                <h3>0.00001%</h3>
-                <p>SNAP SUCCESS RATE</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Twin Introduction -->
-    <section class="twin-section">
-        <div class="twin-content">
-            <h2>EACH INFINITY STONE COSTS 10,000 THANOSCOCK TOKENS. COLLECT ALL 6 STONES TO COMPLETE THE GAUNTLET AND GAIN THE POWER TO SNAP REALITY ITSELF.</h2>
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="#manifesto" class="btn btn-primary">Start Collecting</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Manifesto Section -->
-    <section class="manifesto" id="manifesto">
-        <div class="manifesto-content">
-            <h2>THE INFINITY PROTOCOL</h2>
-            <h3>THE THANOSCOCK MANIFESTO</h3>
-            <p>WE BELIEVE IN THE POWER OF PERFECTLY BALANCED TOKENOMICS. THANOSCOCK REPRESENTS THE ULTIMATE DEFLATIONARY MECHANISM THROUGH THE SACRED RITUAL OF THE SNAP.</p>
-            <p>THIS PROTOCOL ENABLES HOLDERS TO PARTICIPATE IN THE COSMIC LOTTERY WHERE REALITY ITSELF CAN BE REWRITTEN WITH A SINGLE SNAP OF THE GAUNTLET.</p>
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
-            </div>
-            
-            <h3 style="margin-top: 80px;">WHY THE SNAP?</h3>
-            <p>WHEN A HOLDER COMPLETES THEIR INFINITY GAUNTLET WITH ALL 6 STONES, THEY GAIN THE POWER TO ATTEMPT THE SNAP. SUCCESS MEANS HALVING THE ENTIRE LIQUIDITY POOL - THE ULTIMATE DEFLATIONARY EVENT.</p>
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="#manifesto" class="btn btn-primary">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Digital Twins Section -->
-    <section class="digital-twins">
-        <div class="twin-content">
-            <h2>COLLECT THE INFINITY STONES, WIELD ULTIMATE POWER</h2>
-            <p class="description">EACH STONE REPRESENTS A FUNDAMENTAL FORCE OF THE UNIVERSE. ACQUIRE ALL 6 STONES USING THANOSCOCK TOKENS TO COMPLETE YOUR GAUNTLET AND UNLOCK THE POWER OF THE SNAP.</p>
-            <p class="description">ONLY THOSE WITH A COMPLETE GAUNTLET CAN ATTEMPT TO SNAP REALITY AND POTENTIALLY HALVE THE LIQUIDITY POOL FOREVER.</p>
-            
-            <div class="twins-grid">
-                <div class="twin-card">
-                    <h4>🔴 POWER STONE</h4>
-                    <p>THE POWER STONE GRANTS ITS WIELDER IMMENSE STRENGTH AND ENERGY MANIPULATION. COST: 10,000 THANOSCOCK TOKENS. THIS CRIMSON GEM AMPLIFIES YOUR COSMIC INFLUENCE WITHIN THE PROTOCOL.</p>
-                </div>
-                <div class="twin-card">
-                    <h4>🔵 SPACE STONE</h4>
-                    <p>THE SPACE STONE ALLOWS INSTANTANEOUS TRAVEL ACROSS THE UNIVERSE AND MANIPULATION OF SPATIAL DIMENSIONS. COST: 10,000 THANOSCOCK TOKENS. BEND REALITY TO YOUR WILL.</p>
-                </div>
-                <div class="twin-card">
-                    <h4>🟡 MIND STONE</h4>
-                    <p>THE MIND STONE GRANTS TELEPATHIC ABILITIES AND CONSCIOUSNESS MANIPULATION. COST: 10,000 THANOSCOCK TOKENS. CONTROL THOUGHTS AND INFLUENCE THE COLLECTIVE CONSCIOUSNESS.</p>
-                </div>
-                <div class="twin-card">
-                    <h4>🟠 REALITY STONE</h4>
-                    <p>THE REALITY STONE CAN ALTER THE FUNDAMENTAL LAWS OF PHYSICS AND REALITY ITSELF. COST: 10,000 THANOSCOCK TOKENS. RESHAPE EXISTENCE ACCORDING TO YOUR DESIRES.</p>
-                </div>
-                <div class="twin-card">
-                    <h4>🟢 TIME STONE</h4>
-                    <p>THE TIME STONE GRANTS CONTROL OVER THE FLOW OF TIME - PAST, PRESENT, AND FUTURE. COST: 10,000 THANOSCOCK TOKENS. MANIPULATE TEMPORAL MECHANICS AT WILL.</p>
-                </div>
-                <div class="twin-card">
-                    <h4>🟣 SOUL STONE</h4>
-                    <p>THE SOUL STONE CONTROLS LIFE AND DEATH, THE MOST MYSTERIOUS OF ALL STONES. COST: 10,000 THANOSCOCK TOKENS. COMMAND THE ESSENCE OF EXISTENCE ITSELF.</p>
+                <a href="https://axiom.trade/meme/moZRjwhT3zj7iqCupzn5vx7wQFjKfqkPjtEJaUVbTcp?chain=sol" target="_blank" class="btn btn-primary">Buy THANOSCOCK</a>
+                <div class="disabled-button-container">
+                    <a href="#" class="btn btn-disabled-x">Trade Stones</a>
+                    <div class="red-x">✕</div>
+                    <div class="coming-soon">COMING SOON</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Silo Section -->
-    <section class="silo-section" id="silo">
-        <div class="twin-content">
-            <h2>THE GAUNTLET INTERFACE</h2>
-            <p class="description">TRACK YOUR STONE COLLECTION PROGRESS AND EXECUTE THE SNAP WHEN YOUR GAUNTLET IS COMPLETE. MONITOR THE LIQUIDITY POOL AND PREPARE FOR THE ULTIMATE COSMIC EVENT.</p>
-            <div class="download-buttons">
-                <button id="connectWalletBtn" class="btn btn-primary">Connect Wallet</button>
-                <button id="viewGauntletBtn" class="btn btn-primary btn-disabled">View Gauntlet</button>
-            </div>
-            <div class="wallet-required" id="walletRequired">⚠️ CONNECT YOUR WALLET TO ACCESS THE GAUNTLET</div>
-            <div style="margin-top: 40px;">
-                <a href="#" class="btn">Live Trading</a>
-            </div>
+    <!-- Stats Section - Moved to top right -->
+    <div class="stats-sidebar">
+        <div class="stat-item">
+            <h3>∞</h3>
+            <p>THANOSCOCK HOLDERS</p>
         </div>
-    </section>
-
-    <!-- Exocortex Section -->
-    <section class="exocortex">
-        <div class="exocortex-content">
-            <h2>TOKENOMICS</h2>
-            <p class="description">THANOSCOCK OPERATES ON A REVOLUTIONARY DEFLATIONARY MODEL WHERE HOLDERS CAN LITERALLY SNAP AWAY HALF THE LIQUIDITY THROUGH COSMIC INTERVENTION. PERFECT BALANCE, AS ALL THINGS SHOULD BE.</p>
-            
-            <div class="phases">
-                <div class="phase">
-                    <div class="phase-number">Phase 1</div>
-                    <h4>STONE COLLECTION</h4>
-                    <p>ACQUIRE THANOSCOCK TOKENS ON THE SOLANA BLOCKCHAIN. EACH INFINITY STONE COSTS EXACTLY 10,000 THANOSCOCK TOKENS.</p>
-                    <p>STONES ARE NFTS THAT GRANT SPECIAL PRIVILEGES AND VOTING RIGHTS WITHIN THE PROTOCOL.</p>
-                    <p>COMPLETE YOUR COLLECTION TO UNLOCK THE ULTIMATE POWER OF THE SNAP.</p>
-                </div>
-                <div class="phase">
-                    <div class="phase-number">Phase 2</div>
-                    <h4>GAUNTLET ASSEMBLY</h4>
-                    <p>ONCE YOU OWN ALL 6 INFINITY STONES, THEY AUTOMATICALLY COMBINE INTO THE INFINITY GAUNTLET NFT - THE MOST POWERFUL ASSET IN THE THANOSCOCK ECOSYSTEM.</p>
-                </div>
-                <div class="phase">
-                    <div class="phase-number">Phase 3</div>
-                    <h4>THE SNAP</h4>
-                    <p>GAUNTLET HOLDERS CAN ATTEMPT THE SNAP WITH A 0.00001% CHANCE OF SUCCESS. SUCCESS TRIGGERS THE HALVING OF THE ENTIRE LIQUIDITY POOL - THE ULTIMATE DEFLATIONARY EVENT.</p>
-                </div>
-            </div>
+        <div class="stat-item">
+            <h3>6</h3>
+            <p>INFINITY STONES AVAILABLE</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <h2>THANOSCOCK PROTOCOL</h2>
-            <p>PERFECTLY BALANCED TOKENOMICS, AS ALL THINGS SHOULD BE</p>
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="#manifesto" class="btn btn-primary">Buy THANOSCOCK</a>
-                <a href="#silo" class="btn">Trade Stones</a>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h5>PROTOCOL</h5>
-                    <ul>
-                        <li><a href="#manifesto">TOKENOMICS</a></li>
-                        <li><a href="#docs">WHITEPAPER</a></li>
-                        <li><a href="#blueprint">SMART CONTRACT</a></li>
-                        <li><a href="#community">COMMUNITY</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h5>TRADING</h5>
-                    <ul>
-                        <li><a href="#">DEX LISTING</a></li>
-                        <li><a href="#">LIQUIDITY POOL</a></li>
-                        <li><a href="#">STONE MARKETPLACE</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>© THANOSCOCK PROTOCOL. 2025 ALL RIGHTS RESERVED.</p>
-            </div>
+        <div class="stat-item">
+            <h3>0.00001%</h3>
+            <p>SNAP SUCCESS RATE</p>
         </div>
-    </footer>
+    </div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -871,7 +832,7 @@
             });
         }, observerOptions);
 
-        const statsSection = document.querySelector('.stats');
+        const statsSection = document.querySelector('.stats-sidebar');
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
@@ -977,6 +938,16 @@
             setTimeout(() => {
                 notification.remove();
             }, 3000);
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                showNotification('CONTRACT ADDRESS COPIED TO CLIPBOARD!', 'success');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+                showNotification('FAILED TO COPY CONTRACT ADDRESS', 'error');
+            });
         }
 
         // Initialize wallet connection on page load
