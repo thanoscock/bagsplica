@@ -957,18 +957,8 @@
                 connectBtn.onclick = connectWallet;
             }
 
-            // Check if wallet is already connected
-            if (typeof window.ethereum !== 'undefined') {
-                window.ethereum.request({ method: 'eth_accounts' })
-                    .then(accounts => {
-                        if (accounts.length > 0) {
-                            walletAddress = accounts[0];
-                            isWalletConnected = true;
-                            updateWalletUI();
-                        }
-                    })
-                    .catch(console.error);
-            }
+            // Removed automatic wallet connection check
+            // Users must manually click "Connect Wallet" button
         });
 
         // Add typing effect to hero title (optional enhancement)
